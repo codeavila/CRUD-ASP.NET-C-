@@ -108,12 +108,7 @@ namespace CRUD
             }
         }
 
-        private void Method_Read(int get_ID)
-        {
-            
-
-            
-        }
+        
 
         private void Method_Update(int get_ID)
         {

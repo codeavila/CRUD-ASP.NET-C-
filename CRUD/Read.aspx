@@ -12,15 +12,13 @@
         <div>
             <h1>Read</h1>
 
-            <asp:DropDownList ID="DropDown_UserName" runat="server" OnSelectedIndexChanged="DropDown_UserName_SelectedIndexChanged">
-                <asp:ListItem Text="<Select Subject>" Value="0" />
+            <asp:DropDownList ID="ddlSubject" runat="server" AppendDataBoundItems="true">
+                <asp:ListItem Text="<Default>" Value="0" />
             </asp:DropDownList>
-
-            
-
-
-
+            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
         </div>
     </form>
+    <p>
+        &nbsp;</p>
 </body>
 </html>

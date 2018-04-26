@@ -121,5 +121,15 @@ namespace CRUD
             Debug.WriteLine("Paso 2: Datos Cookie: " + Own_Cookie.Value);
             Response.Redirect("Update.aspx");
         }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            asp_FechaIni.Text = Calendar1.SelectedDate.ToShortDateString();
+        }
+
+        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
+        {
+            asp_FechaFin.Text = Calendar2.SelectedDate.ToShortDateString();
+        }
     }
 }

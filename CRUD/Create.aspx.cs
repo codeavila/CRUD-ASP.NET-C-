@@ -40,7 +40,7 @@ namespace CRUD
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 Debug.WriteLine("Paso 1: Dentro de la Conexion ");
-                string SQL_Query = @"INSERT INTO users (user_name,user_password) VALUES  (@SQL_user_name, @SQL_user_password)";
+                string SQL_Query = @"INSERT INTO users (user_name,user_password,user_create_date,user_update_date) VALUES  (@SQL_user_name, @SQL_user_password,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
                 SqlCommand cmd = new SqlCommand(SQL_Query, con);
 
                 cmd.Parameters.Add("@SQL_user_name", System.Data.SqlDbType.VarChar);

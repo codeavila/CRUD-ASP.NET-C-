@@ -110,7 +110,7 @@ namespace CRUD
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 Debug.WriteLine("Paso 1: Dentro de la Conexion ");
-                string SQL_Query = @"UPDATE users SET user_name = @SQL_user_name , user_password = @SQL_user_password WHERE id_usuario= @SQL_ID_Usuario";
+                string SQL_Query = @"UPDATE users SET user_name = @SQL_user_name , user_password = @SQL_user_password , user_update_date = CURRENT_TIMESTAMP WHERE id_usuario= @SQL_ID_Usuario";
                 SqlCommand cmd = new SqlCommand(SQL_Query, con);
 
                 cmd.Parameters.Add("@SQL_ID_Usuario", System.Data.SqlDbType.VarChar);

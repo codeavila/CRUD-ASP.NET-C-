@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Create.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PopulateDropDown.aspx" />
     <Content Include="Read.aspx" />
     <Content Include="tabla_Usuarios.aspx" />
     <Content Include="Update.aspx" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopulateDropDown.aspx.cs">
+      <DependentUpon>PopulateDropDown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopulateDropDown.aspx.designer.cs">
+      <DependentUpon>PopulateDropDown.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Read.aspx.cs">

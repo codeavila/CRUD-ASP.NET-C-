@@ -9,16 +9,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h1>Read</h1>
+        <h1>Nombre de Usuario</h1>
+        <asp:DropDownList ID="DropDown_Usuarios" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDown_Usuarios_SelectedIndexChanged"></asp:DropDownList>
+        <h2>Passord del Usuario</h2>
+        <asp:DropDownList ID="DropDown_Passwords" runat="server"></asp:DropDownList>
 
-            <asp:DropDownList ID="ddlSubject" runat="server" AppendDataBoundItems="true">
-                <asp:ListItem Text="<Default>" Value="0" />
-            </asp:DropDownList>
-            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-        </div>
     </form>
-    <p>
-        &nbsp;</p>
+
 </body>
 </html>

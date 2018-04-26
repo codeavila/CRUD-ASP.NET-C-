@@ -56,7 +56,35 @@
         <asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Calendar2_SelectionChanged"></asp:Calendar>
         <asp:Label ID="lbl_FechaSeleccionadaFin" runat="server" Text="Fecha Final"></asp:Label>
         <asp:TextBox ID="asp_FechaFin" runat="server"></asp:TextBox>
+        
+        <h1>Busqueda Por Fecha</h1>
+        <asp:Button ID="btn_BusquedaPorFecha" runat="server" Text="Busqueda" OnCommand="btn_DoSwitchCase" CommandName="Comando_SearchDate"/>
 
+        <asp:Repeater ID="Repeater1" runat="server">
+                <HeaderTemplate>
+                    <table class="table">
+                        <tr>
+                          <th >ID Usuario</th>
+                          <th >Nombre de Usuario</th>
+                          <th >Password</th>
+                          <th >Fecha de Creacion</th>
+                          <th >Fecha de Modificacion</th>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td ><%# Eval("id_usuario") %></td>
+                        <td ><%# Eval("user_name") %></td>
+                        <td ><%# Eval("user_password") %></td>
+                        <td ><%# Eval("user_create_date") %></td>
+                        <td ><%# Eval("user_update_date") %></td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
+        
     </form>
 </body>
 </html>

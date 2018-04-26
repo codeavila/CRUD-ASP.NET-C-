@@ -70,6 +70,54 @@ namespace CRUD
                 case "Comando_Back":
                         Response.Redirect("Login.aspx");
                     break;
+                case "Comando_SearchDate":
+                     Method_SearchDate();
+                    break;
+            }
+        }
+
+        private void Method_SearchDate()
+        {
+            Debug.WriteLine("Metodo Search For Date");
+            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(ChainConexionString))
+            {
+                Debug.WriteLine("Paso 1: Dentro de la Conexion ");
+
+                //select * from LOGS where check_in >= CONVERT(datetime, '2013-10-17') and check_in<CONVERT(datetime,'2013-10-19')
+
+                string SQL_Query = @"SELECT * FROM users WHERE user_create_date BETWEEN @SQL_Date_Inicio AND  @SQL_Date_Fin ";
+                SqlCommand cmd = new SqlCommand(SQL_Query, con);
+
+                cmd.Parameters.Add("@SQL_Date_Inicio", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@SQL_Date_Inicio"].Value = asp_FechaIni.Text;
+                    Debug.WriteLine("Fecha Inicio: "+asp_FechaIni.Text);
+
+                cmd.Parameters.Add("@SQL_Date_Fin", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@SQL_Date_Fin"].Value = asp_FechaFin.Text;
+                    Debug.WriteLine("Fecha Fin: " + asp_FechaFin.Text);
+
+                Debug.WriteLine("Paso 2: Variables Registradas SQL_() ");
+                try
+                {
+                    Debug.WriteLine("Dentro de TRY de FECHA");
+                    con.Open();
+                    SqlDataAdapter sda_B = new SqlDataAdapter(cmd);
+                    DataSet ds_B = new DataSet();
+                    sda_B.Fill(ds_B);
+                    Repeater1.DataSource = ds_B;
+                    Repeater1.DataBind();
+                    con.Close();
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    Debug.WriteLine("Error : " + ex);
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
         }
 
@@ -131,5 +179,7 @@ namespace CRUD
         {
             asp_FechaFin.Text = Calendar2.SelectedDate.ToShortDateString();
         }
+
+
     }
 }

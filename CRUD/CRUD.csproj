@@ -78,6 +78,7 @@
     <Content Include="Create.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Read.aspx" />
+    <Content Include="ShowDetail.aspx" />
     <Content Include="tabla_Usuarios.aspx" />
     <Content Include="Update.aspx" />
     <Content Include="Web.config" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="Read.aspx.designer.cs">
       <DependentUpon>Read.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowDetail.aspx.cs">
+      <DependentUpon>ShowDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowDetail.aspx.designer.cs">
+      <DependentUpon>ShowDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="tabla_Usuarios.aspx.cs">
       <DependentUpon>tabla_Usuarios.aspx</DependentUpon>

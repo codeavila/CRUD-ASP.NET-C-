@@ -10,7 +10,7 @@
 namespace CRUD {
     
     
-    public partial class Read {
+    public partial class ShowDetail {
         
         /// <summary>
         /// Control form1.
@@ -20,15 +20,6 @@ namespace CRUD {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// Control DropDown_Usuarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDown_Usuarios;
         
         /// <summary>
         /// Control lbl_UsuarioID.

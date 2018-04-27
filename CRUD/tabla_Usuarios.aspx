@@ -35,7 +35,7 @@
                             <asp:Button ID="btn_Delete" runat="server" Text="Eliminar" OnCommand="btn_DoSwitchCase" CommandName="Comando_Delete" CommandArgument='<%# Eval("id_usuario") %>' />
                         </td>
                         <td>
-                            <asp:Button ID="btn_Read" runat="server" Text="Detalles" OnCommand="btn_DoSwitchCase" CommandName="Comando_Read" CommandArgument='<%# Eval("id_usuario") %>' />
+                            <asp:Button ID="btn_Read" runat="server" Text="Detalles" OnCommand="btn_DoSwitchCase" CommandName="Comando_ShowDetail" CommandArgument='<%# Eval("id_usuario") %>' />
                         </td>
                         <td>
                             <asp:Button ID="btn_Update" runat="server" Text="Actualizar" OnCommand="btn_DoSwitchCase" CommandName="Comando_Update" CommandArgument='<%# Eval("id_usuario") %>' />

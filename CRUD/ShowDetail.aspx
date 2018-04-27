@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Read.aspx.cs" Inherits="CRUD.Read" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowDetail.aspx.cs" Inherits="CRUD.ShowDetail" %>
 
 <!DOCTYPE html>
 
@@ -9,12 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        <h1>LEER TODOS LOS ELEMENTOS</h1>
-
-        <h1>Nombre de Usuario</h1>
-        <asp:DropDownList ID="DropDown_Usuarios" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDown_Usuarios_SelectedIndexChanged"></asp:DropDownList>
-        <h2>Passord del Usuario</h2>
+        <div>
+            <h1>Detalles de: </h1>
+           
+            <h2>Passord del Usuario</h2>
        
 
             <h1>Datos de Usuario</h1>
@@ -54,8 +52,7 @@
 
 
         <asp:Button ID="btn_Back" runat="server" Text="Regresar a las Tablas" OnClick="btn_Back_Click" />
-
+        </div>
     </form>
-
 </body>
 </html>

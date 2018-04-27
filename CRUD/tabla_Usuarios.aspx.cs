@@ -73,7 +73,27 @@ namespace CRUD
                 case "Comando_SearchDate":
                      Method_SearchDate();
                     break;
+                case "Comando_ShowDetail":
+                    Debug.WriteLine("Caso ShowDetail");
+                    int C_ID_ShowDetail = Convert.ToInt32(e.CommandArgument);
+                    Method_ShowDetail(C_ID_ShowDetail);
+                    break;
+                    
             }
+        }
+
+        private void Method_ShowDetail(int c_ID_ShowDetail)
+        {
+            
+            Debug.WriteLine("Paso 1: Datos que se integran en la Cookie: " + c_ID_ShowDetail);
+            HttpCookie Own_Cookie = new HttpCookie("EUABApp");
+            Own_Cookie.Value = c_ID_ShowDetail.ToString();
+            Own_Cookie.Expires = DateTime.Now.AddHours(1);
+            Own_Cookie.Path = "EUAB_App";
+            Response.Cookies.Add(Own_Cookie);
+            Debug.WriteLine("Paso 2: Datos Cookie: " + Own_Cookie.Value);
+            Response.Redirect("ShowDetail.aspx");
+            
         }
 
         private void Method_SearchDate()

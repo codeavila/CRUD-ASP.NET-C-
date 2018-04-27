@@ -14,6 +14,7 @@
             <h1>Datos de Usuario</h1>
             <asp:Label ID="lbl_UsuarioNombre" runat="server" Text="Nombre de Usuario"></asp:Label>
             <asp:TextBox ID="asp_UsuarioNombre" runat="server"></asp:TextBox><br />  
+            
 
             <asp:Label ID="lbl_UsuarioPassword" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="asp_UsuarioPassword" runat="server"></asp:TextBox><br />  

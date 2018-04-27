@@ -14,9 +14,8 @@ namespace CRUD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string path = Directory.GetCurrentDirectory();
-            Debug.WriteLine("El Path es: "+path);
+         //   string path = Directory.GetCurrentDirectory();
+         //   Debug.WriteLine("El Path es: "+path);
         }
 
        
@@ -27,7 +26,11 @@ namespace CRUD
             {
                 case "Comando_Ingresar":
                     Debug.WriteLine("Caso Ingresar");
-                    Method_Ingresar();
+
+                    Control_Errores();
+
+                    //Method_Ingresar();
+
                     break;
 
                 case "Comando_Registrar":
@@ -36,6 +39,24 @@ namespace CRUD
                     break;
             }
         }
+
+        private void Control_Errores()
+        {
+            
+                // Version Nativa
+                //Response.Write("<h2>Global Page Error</h2>\n");
+
+                if (asp_UsuarioNombre.Text == "" || asp_UsuarioPassword.Text == "")
+                {
+                Response.Write("<div class='alert alert - warning alert - dismissible fade show' role='alert'> < strong > Holy guacamole!</ strong > You should check in on some of those fields below. < button type = 'button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>&times;</span> </button>"+ "</div>");
+                }
+                
+
+
+            
+        }
+
+     
 
         private void Method_Ingresar()
         {

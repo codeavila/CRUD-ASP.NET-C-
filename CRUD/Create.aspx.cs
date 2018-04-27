@@ -17,8 +17,6 @@ namespace CRUD
             
         }
 
-        
-
         protected void btn_LoginSwitchCase(object sender, CommandEventArgs e)
         {
             switch (e.CommandName)
@@ -45,10 +43,6 @@ namespace CRUD
                 Debug.WriteLine("Paso 1: Dentro de la Conexion ");
                 string SQL_Query = @"INSERT INTO users (user_name,user_password,user_create_date,user_update_date) 
                                         VALUES  (@SQL_user_name, @SQL_user_password,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
-
-
-               
-
 
                 SqlCommand cmd = new SqlCommand(SQL_Query, con);
 

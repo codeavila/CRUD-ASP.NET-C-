@@ -12,7 +12,42 @@
         <h1>Nombre de Usuario</h1>
         <asp:DropDownList ID="DropDown_Usuarios" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDown_Usuarios_SelectedIndexChanged"></asp:DropDownList>
         <h2>Passord del Usuario</h2>
-        <asp:DropDownList ID="DropDown_Passwords" runat="server"></asp:DropDownList>
+       
+
+            <h1>Datos de Usuario</h1>
+            <asp:Label ID="lbl_UsuarioID" runat="server" Text="ID Usuario"></asp:Label>
+                <asp:TextBox ID="asp_UsuarioID" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl_UsuarioNombre" runat="server" Text="Nombre de Usuario"></asp:Label>
+                <asp:TextBox ID="asp_UsuarioNombre" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl_UsuarioPassword" runat="server" Text="Password"></asp:Label>
+                <asp:TextBox ID="asp_UsuarioPassword" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="lbl_UsuarioFechaRegister" runat="server" Text="Fecha de Registro"></asp:Label>
+                <asp:TextBox ID="asp_RegisterDate" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="lbl_UsuarioFechaUpdate" runat="server" Text="Fecha de la Ultima Actualizacion"></asp:Label>
+                <asp:TextBox ID="asp_UpdateDate" runat="server"></asp:TextBox><br />
+            
+            <h1>Datos de Personales</h1>
+            <asp:Label ID="lbl_Detail_usuarioNombre" runat="server" Text="Nombre"></asp:Label>
+                <asp:TextBox ID="aps_Detail_usuarioNombre" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl_Detail_usuarioApellido" runat="server" Text="Apellido"></asp:Label>
+                <asp:TextBox ID="asp_Detail_usuarioApellido" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl__Detail_usuarioTelefono" runat="server" Text="Telefono"></asp:Label>
+                <asp:TextBox ID="asp_Detail_usuarioATelefono" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl__Detail_usuarioEstado" runat="server" Text="Estado"></asp:Label>
+                <asp:TextBox ID="asp_Detail_usuarioEstado" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl__Detail_usuarioCiudad" runat="server" Text="Ciudad"></asp:Label>
+                <asp:TextBox ID="asp_Detail_usuarioCiudad" runat="server"></asp:TextBox><br />  
+
+            <asp:Label ID="lbl_Detail_usuarioEmail" runat="server" Text="Email"></asp:Label>
+                <asp:TextBox ID="asp_Detail_usuarioEmail" runat="server"></asp:TextBox>
 
 
         

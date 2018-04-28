@@ -12,6 +12,8 @@ namespace CRUD
 {
     public partial class tabla_Usuarios : System.Web.UI.Page
     {
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +24,7 @@ namespace CRUD
 
         private void Fill_Table()
         {
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
@@ -99,7 +101,7 @@ namespace CRUD
         private void Method_SearchDate()
         {
             Debug.WriteLine("Metodo Search For Date");
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
@@ -145,7 +147,7 @@ namespace CRUD
         {
             Debug.WriteLine("Metodo Delete");
 
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {

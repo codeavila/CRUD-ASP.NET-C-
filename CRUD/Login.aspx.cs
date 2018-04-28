@@ -8,10 +8,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
+
 namespace CRUD
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page 
     {
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
+        //string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
          //   string path = Directory.GetCurrentDirectory();
@@ -79,7 +84,7 @@ namespace CRUD
             string varC_Password = asp_UsuarioPassword.Text;
             Debug.WriteLine("Password: " + varC_Password);
             */
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {

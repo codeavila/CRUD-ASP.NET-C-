@@ -11,6 +11,7 @@ namespace CRUD
 {
     public partial class Create : System.Web.UI.Page
     {
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
      
@@ -37,15 +38,19 @@ namespace CRUD
             private void Method_Create()
         {
             Debug.WriteLine("Metodo Create");
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 Debug.WriteLine("Paso 1: Dentro de la Conexion ");
                 string SQL_Query = @"INSERT INTO users (user_name,user_password,user_create_date,user_update_date) 
+                                        VALUES  (@SQL_user_name, @SQL_user_password,@SQL_date_create,@SQL_date_update)";
+                /*
+                string SQL_Query = @"INSERT INTO users (user_name,user_password,user_create_date,user_update_date) 
                                         VALUES  (@SQL_user_name, @SQL_user_password,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
+                                        */
 
                 SqlCommand cmd = new SqlCommand(SQL_Query, con);
-
+                /*
                 cmd.Parameters.Add("@SQL_user_name", System.Data.SqlDbType.VarChar);
                 cmd.Parameters["@SQL_user_name"].Value = asp_UsuarioNombre.Text;
                 Debug.WriteLine("SQL_user_name: " + asp_UsuarioNombre.Text);
@@ -53,6 +58,31 @@ namespace CRUD
                 cmd.Parameters.Add("@SQL_user_password", System.Data.SqlDbType.VarChar);
                 cmd.Parameters["@SQL_user_password"].Value = asp_UsuarioPassword.Text;
                 Debug.WriteLine("SQL_user_password: " + asp_UsuarioPassword.Text);
+                */
+                cmd.Parameters.Add("@SQL_user_name", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@SQL_user_name"].Value = asp_UsuarioNombre.Text;
+                Debug.WriteLine("SQL_user_name: " + asp_UsuarioNombre.Text);
+
+                cmd.Parameters.Add("@SQL_user_password", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@SQL_user_password"].Value = asp_UsuarioPassword.Text;
+                Debug.WriteLine("SQL_user_password: " + asp_UsuarioPassword.Text);
+
+
+                DateTime varDateCreate = DateTime.Now;
+                string sqlFormattedDateCreate = varDateCreate.ToString("yyyy-MM-dd HH:mm:ss");
+                Debug.WriteLine("Fecha CREATE FORMAT: "+sqlFormattedDateCreate);
+
+                DateTime varDateUpdate = DateTime.Now;
+                string sqlFormattedDateUpdate = varDateUpdate.ToString("yyyy-MM-dd HH:mm:ss");
+                Debug.WriteLine("Fecha CREATE FORMAT: " + sqlFormattedDateUpdate);
+
+                cmd.Parameters.AddWithValue("@SQL_date_create", sqlFormattedDateCreate);
+
+                cmd.Parameters.AddWithValue("@SQL_date_update", sqlFormattedDateUpdate);
+
+                
+
+
 
                 Debug.WriteLine("Paso 2: Variables Registradas SQL_()");
                 try
@@ -110,6 +140,26 @@ namespace CRUD
                     
                    
                     cmd_B.ExecuteNonQuery();
+
+                    Debug.WriteLine("Los Datos de User STATUS han sido Insertados con exito");
+                    /////
+
+                    //SQL INSERT NEXT 
+                    string SQL_Query_C = @"INSERT INTO usersStatus (usuario_status, id_usuario)
+                                     VALUES  (@SQL_usuario_status, @SQL_Last_ID)";
+
+                    SqlCommand cmd_C = new SqlCommand(SQL_Query_C, con);
+
+                    cmd_C.Parameters.Add("@SQL_usuario_status", System.Data.SqlDbType.VarChar);
+                    cmd_C.Parameters["@SQL_usuario_status"].Value = 1;
+                    Debug.WriteLine("SQL_usuario_status (VALOR DEFAULT 1 - ACTIVADO y 0 - DESACTIVADO): " + 1);
+
+                    cmd_C.Parameters.Add("@SQL_Last_ID", System.Data.SqlDbType.VarChar);
+                    cmd_C.Parameters["@SQL_Last_ID"].Value = newId;
+                    Debug.WriteLine("SQL_Last_ID: " + newId);
+
+
+                    cmd_C.ExecuteNonQuery();
 
                     Debug.WriteLine("Los Datos de Details han sido Insertados con exito");
                     /////

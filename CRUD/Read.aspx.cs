@@ -12,6 +12,9 @@ namespace CRUD
 {
     public partial class Read : System.Web.UI.Page
     {
+
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -23,7 +26,7 @@ namespace CRUD
 
         private void Fill_Usuarios()
         {
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
@@ -60,7 +63,7 @@ namespace CRUD
 
         private void show_Data_User(int usuarioID_InnerJoin)
         {
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+            
 
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {

@@ -11,6 +11,7 @@ namespace CRUD
 {
     public partial class ShowDetail : System.Web.UI.Page
     {
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,8 +41,7 @@ namespace CRUD
 
         private void show_Data_User(int usuarioID_InnerJoin)
         {
-            string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
-
+            
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 Debug.WriteLine("Paso 1: Dentro de show_Data_User");
@@ -61,19 +61,34 @@ namespace CRUD
                     if (dr.Read())
                     {
                         //Usuario Registro
+                        asp_UsuarioID.Text = "" + dr.GetValue(dr.GetOrdinal("id_usuario"));
+                        asp_UsuarioNombre.Text ="" + dr.GetValue(dr.GetOrdinal("user_name"));
+                        asp_UsuarioPassword.Text ="" + dr.GetValue(dr.GetOrdinal("user_password"));
+                        asp_RegisterDate.Text ="" + dr.GetValue(dr.GetOrdinal("user_create_date"));
+                        asp_UpdateDate.Text = "" + dr.GetValue(dr.GetOrdinal("user_update_date"));
+
+                        /* OBTENER DATOS POR MEDIO DEL NUMERO DE COLUMNA
                         asp_UsuarioID.Text = dr.GetValue(0).ToString();
                         asp_UsuarioNombre.Text = dr.GetValue(1).ToString();
                         asp_UsuarioPassword.Text = dr.GetValue(2).ToString();
                         asp_RegisterDate.Text = dr.GetValue(3).ToString();
                         asp_UpdateDate.Text = dr.GetValue(4).ToString();
+                        */
                         //Usuario Detalles
+                        aps_Detail_usuarioNombre.Text = "" + dr.GetOrdinal("usuario_Nombre").ToString();
+                        asp_Detail_usuarioApellido.Text = "" + dr.GetOrdinal("usuario_Apellido").ToString();
+                        asp_Detail_usuarioATelefono.Text = "" + dr.GetOrdinal("usuario_Telefono").ToString();
+                        asp_Detail_usuarioEstado.Text = "" + dr.GetOrdinal("usuario_Estado").ToString();
+                        asp_Detail_usuarioCiudad.Text = "" + dr.GetOrdinal("usuario_Ciudad").ToString();
+                        asp_Detail_usuarioEmail.Text = "" + dr.GetOrdinal("usuario_Email").ToString();
+                        /* OBTENER DATOS POR MEDIO DEL NUMERO DE COLUMNA
                         aps_Detail_usuarioNombre.Text = dr.GetValue(6).ToString();
                         asp_Detail_usuarioApellido.Text = dr.GetValue(7).ToString();
                         asp_Detail_usuarioATelefono.Text = dr.GetValue(8).ToString();
                         asp_Detail_usuarioEstado.Text = dr.GetValue(9).ToString();
                         asp_Detail_usuarioCiudad.Text = dr.GetValue(10).ToString();
                         asp_Detail_usuarioEmail.Text = dr.GetValue(11).ToString();
-
+                        */
                         dr.Close();
 
                         Debug.WriteLine("Paso 4: Datos cargados ");

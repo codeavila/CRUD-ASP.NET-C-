@@ -11,7 +11,7 @@ namespace CRUD
 {
     public partial class Update : System.Web.UI.Page
     {
-        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=usuarios;Integrated Security=True";
+        string ChainConexionString = "Data Source=WEB-USER;Initial Catalog=DB_users;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace CRUD
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 Debug.WriteLine("Paso 1: Dentro de la Conexion ");
-                string SQL_Query = @"UPDATE users SET user_name = @SQL_user_name , user_password = @SQL_user_password , user_update_date = CURRENT_TIMESTAMP WHERE id_usuario= @SQL_ID_Usuario";
+                string SQL_Query = @"UPDATE users SET user_name = @SQL_user_name , user_password = @SQL_user_password , user_update_date = @SQL_date_update WHERE id_usuario= @SQL_ID_Usuario";
                 SqlCommand cmd = new SqlCommand(SQL_Query, con);
 
                 cmd.Parameters.Add("@SQL_ID_Usuario", System.Data.SqlDbType.VarChar);
@@ -124,6 +124,12 @@ namespace CRUD
                 cmd.Parameters.Add("@SQL_user_password", System.Data.SqlDbType.VarChar);
                 cmd.Parameters["@SQL_user_password"].Value = asp_UsuarioPassword.Text;
                 Debug.WriteLine("SQL_user_password: "+ asp_UsuarioPassword.Text);
+
+                DateTime varDateUpdate = DateTime.Now;
+                string sqlFormattedDateUpdate = varDateUpdate.ToString("yyyy-MM-dd HH:mm:ss");
+                Debug.WriteLine("Fecha CREATE FORMAT: " + sqlFormattedDateUpdate);
+
+                cmd.Parameters.AddWithValue("@SQL_date_update", sqlFormattedDateUpdate);
 
                 Debug.WriteLine("Paso 2: Variables Registradas SQL_() ");
                 try

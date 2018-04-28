@@ -18,11 +18,11 @@
                <h1>Login</h1>
             <div class="form-group">
                 <asp:Label ID="lbl_UsuarioNombre" runat="server"  Text="Nombre de Usuario"></asp:Label>
-                <asp:TextBox ID="asp_UsuarioNombre" runat="server" CssClass="form-control" required></asp:TextBox>
+                <asp:TextBox ID="asp_UsuarioNombre" runat="server" REQUIRED CssClass="form-control" ></asp:TextBox>
              </div>
              <div class="form-group">
                 <asp:Label ID="lbl_UsuarioPassword" runat="server" Text="Password"></asp:Label>
-                <asp:TextBox ID="asp_UsuarioPassword" runat="server" CssClass="form-control" required></asp:TextBox>
+                <asp:TextBox ID="asp_UsuarioPassword" runat="server" REQUIRED CssClass="form-control"  Type="password"></asp:TextBox>
              </div>
              <div class="form-group">
                 <asp:Button ID="btn_Ingresar" runat="server" Text="Ingresar" CssClass="btn btn-primary"  OnCommand="btn_LoginSwitchCase" CommandName="Comando_Ingresar"/>

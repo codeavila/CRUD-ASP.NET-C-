@@ -27,10 +27,11 @@ namespace CRUD
                 case "Comando_Ingresar":
                     Debug.WriteLine("Caso Ingresar");
 
-                    Control_Errores();
+                    //Control_Errores();
 
-                    //Method_Ingresar();
 
+
+                    Method_Ingresar();
                     break;
 
                 case "Comando_Registrar":
@@ -46,14 +47,25 @@ namespace CRUD
                 // Version Nativa
                 //Response.Write("<h2>Global Page Error</h2>\n");
 
-                if (asp_UsuarioNombre.Text == "" || asp_UsuarioPassword.Text == "")
+                bool CE_UserName_Empty()
                 {
-                Response.Write("<div class='alert alert - warning alert - dismissible fade show' role='alert'> < strong > Holy guacamole!</ strong > You should check in on some of those fields below. < button type = 'button' class='close' data-dismiss='alert' aria-label='Close'> <span aria-hidden='true'>&times;</span> </button>"+ "</div>");
+                     if (asp_UsuarioNombre.Text == "")
+                    {
+                        return true;
+                    }
+                return false;
                 }
-                
+
+                bool CE_UserPassword_Empty()
+                {
+                    if (asp_UsuarioNombre.Text == "")
+                    {
+                        return true;
+                    }
+                    return false;
+                }
 
 
-            
         }
 
      

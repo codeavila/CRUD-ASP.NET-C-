@@ -53,6 +53,7 @@ namespace CRUD
         {
             int usuarioID = Convert.ToInt32(DropDown_Usuarios.SelectedValue.ToString());
             //Fill_Password(usuarioID);
+           // asp_DetallesDelUSuario.Text = DropDown_Usuarios.DataTextField.ToString();
             show_Data_User(usuarioID);
            
         }

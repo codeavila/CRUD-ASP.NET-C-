@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
 
         <h1>LEER TODOS LOS ELEMENTOS</h1>
-
+        <h2>Nombre del Usuario</h2>
+        <asp:TextBox ID="asp_DetallesDelUSuario" runat="server"></asp:TextBox>
         <h1>Nombre de Usuario</h1>
         <asp:DropDownList ID="DropDown_Usuarios" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDown_Usuarios_SelectedIndexChanged"></asp:DropDownList>
         <h2>Passord del Usuario</h2>

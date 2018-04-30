@@ -148,6 +148,15 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.TextBox asp_Detail_usuarioCiudad;
         
         /// <summary>
+        /// Control lbl_messageEmailValidation.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_messageEmailValidation;
+        
+        /// <summary>
         /// Control lbl_Detail_usuarioEmail.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,15 @@ namespace CRUD {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox asp_Detail_usuarioEmail;
+        
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Control btn_Registrar.

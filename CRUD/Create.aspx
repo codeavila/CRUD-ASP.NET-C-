@@ -34,11 +34,12 @@
 
             <asp:Label ID="lbl__Detail_usuarioCiudad" runat="server" Text="Ciudad"></asp:Label>
             <asp:TextBox ID="asp_Detail_usuarioCiudad" runat="server"></asp:TextBox><br />  
-
+            <br />
+            <asp:Label ID="lbl_messageEmailValidation" runat="server" Text=""></asp:Label>
             <asp:Label ID="lbl_Detail_usuarioEmail" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="asp_Detail_usuarioEmail" runat="server"></asp:TextBox>
-
-
+            <asp:Button ID="Button1" runat="server" Text="Registrar Nuevo" OnCommand="btn_LoginSwitchCase" CommandName="Comando_ValidarEmail"/>         
+            <br />
             <asp:Button ID="btn_Registrar" runat="server" Text="Registrar Nuevo" OnCommand="btn_LoginSwitchCase" CommandName="Comando_Register"/>
             <asp:Button ID="btn_Regresar" runat="server" Text="Regresar a la pagina anterior"   OnCommand="btn_LoginSwitchCase" CommandName="Comando_Back"/>
         </div>

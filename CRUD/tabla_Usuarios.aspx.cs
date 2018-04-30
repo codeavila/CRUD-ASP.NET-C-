@@ -16,16 +16,55 @@ namespace CRUD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+                if (!IsPostBack)
+                {
+                if (Request.Cookies["EUABApp"] != null)
+                {
+                    Method_CookieReceived();
+                    Fill_Table();
+                }
+                else
+                {
+                    Debug.WriteLine("Cookie Recibida :( Sin Datos");
+                }
+            }
+        }
+
+        protected void btn_DoSwitchCase(object sender, CommandEventArgs e)
+        {
+            switch (e.CommandName)
             {
-                Fill_Table();
+                case "Comando_Delete":
+                    Debug.WriteLine("Caso Delete");
+                    int C_ID_Delete = Convert.ToInt32(e.CommandArgument);
+                    Method_Delete(C_ID_Delete);
+                    break;
+                case "Comando_Read":
+                    Debug.WriteLine("Caso Read");
+                    Response.Redirect("Read.aspx");
+                    break;
+                case "Comando_Update":
+                    Debug.WriteLine("Caso Update");
+                    int C_ID_Update = Convert.ToInt32(e.CommandArgument);
+                    Method_Update(C_ID_Update);
+                    break;
+                case "Comando_Back":
+                    Method_Delete_Cookie_Session();
+                    break;
+                case "Comando_SearchDate":
+                    Method_SearchDate();
+                    break;
+                case "Comando_ShowDetail":
+                    Debug.WriteLine("Caso ShowDetail");
+                    int C_ID_ShowDetail = Convert.ToInt32(e.CommandArgument);
+                    Method_ShowDetail(C_ID_ShowDetail);
+                    break;
+
             }
         }
 
         private void Fill_Table()
         {
-            
-
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
                 string SQL_Query = @"SELECT* FROM users";
@@ -42,7 +81,7 @@ namespace CRUD
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {
-                    Debug.WriteLine("Error : " + ex);
+                    Response.Redirect("Login.aspx");
                 }
                 finally
                 {
@@ -51,38 +90,24 @@ namespace CRUD
             }
         }
 
-        protected void btn_DoSwitchCase(object sender, CommandEventArgs e)
+        
+
+        private void Method_Delete_Cookie_Session()
         {
-            switch (e.CommandName)
-            {
-                case "Comando_Delete":
-                    Debug.WriteLine("Caso Delete");
-                    int C_ID_Delete = Convert.ToInt32(e.CommandArgument);
-                        Method_Delete(C_ID_Delete);
-                    break;
-                case "Comando_Read":
-                    Debug.WriteLine("Caso Read");
-                        Response.Redirect("Read.aspx");
-                    break;
-                case "Comando_Update":
-                    Debug.WriteLine("Caso Update");
-                    int C_ID_Update = Convert.ToInt32(e.CommandArgument);
-                        Method_Update(C_ID_Update);
-                    break;
-                case "Comando_Back":
-                        Response.Redirect("Login.aspx");
-                    break;
-                case "Comando_SearchDate":
-                     Method_SearchDate();
-                    break;
-                case "Comando_ShowDetail":
-                    Debug.WriteLine("Caso ShowDetail");
-                    int C_ID_ShowDetail = Convert.ToInt32(e.CommandArgument);
-                    Method_ShowDetail(C_ID_ShowDetail);
-                    break;
-                    
-            }
+            //Fetch the Cookie using its Key.
+            HttpCookie cookieDelete = Request.Cookies["EUABApp"];
+            cookieDelete.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookieDelete);
+            Response.Redirect("Login.aspx");
         }
+
+        public void Method_CookieReceived()
+        {
+            HttpCookie cookieReceived = Request.Cookies["EUABApp"];
+            string Session_UserName = Server.HtmlEncode(cookieReceived.Value);
+            span_Session_userName.InnerText = Session_UserName;
+        }        
+
 
         private void Method_ShowDetail(int c_ID_ShowDetail)
         {

@@ -79,7 +79,8 @@ namespace CRUD
                        
                         con.Close();
                         //Thread.Sleep(5000);  
-                        Response.Redirect("tabla_Usuarios.aspx");
+                        //Response.Redirect("tabla_Usuarios.aspx");
+                        Create_Coookie_Session(asp_UsuarioNombre.Text);
                     }
                     else
                     {
@@ -100,6 +101,18 @@ namespace CRUD
                 }
             }
         }
+
+        private void Create_Coookie_Session(string cookie_UserName)
+        {
+            HttpCookie cookieCreate_SessionName = new HttpCookie("EUABApp");
+            cookieCreate_SessionName.Value = cookie_UserName;
+            cookieCreate_SessionName.Expires = DateTime.Now.AddHours(1);
+            cookieCreate_SessionName.Path = "EUAB_App";
+            Response.Cookies.Add(cookieCreate_SessionName);
+            Response.Redirect("tabla_Usuarios.aspx");
+        }
+
+
         /*
         private void Method_Ingresar()
         {
@@ -110,7 +123,7 @@ namespace CRUD
             string varC_Password = asp_UsuarioPassword.Text;
             Debug.WriteLine("Password: " + varC_Password);
             */
-            
+
         /*
             using (SqlConnection con = new SqlConnection(ChainConexionString))
             {
@@ -130,36 +143,36 @@ namespace CRUD
                 cmd.Parameters.Add("@SQL_Password", System.Data.SqlDbType.VarChar);
                 cmd.Parameters["@SQL_Password"].Value = varC_UserName.ToString();
                 */
-                /*
-                Debug.WriteLine("Paso 2: Variables Registradas SQL_() ");
-                try
-                {
-                    Debug.WriteLine("Paso 3: Dentro del Try");
-                    con.Open();
-                    object Result = cmd.ExecuteScalar();
-                    if (Result != null)
-                    {
-                        Debug.WriteLine("Paso Query: "+SQL_Query);
-                        Debug.WriteLine("Paso 3: Dentro del IF - Si existe el Usuario");
-                        con.Close();
-                        Server.Transfer("tabla_Usuarios.aspx");
-                    }
-                    else
-                    {
-                        Debug.WriteLine("Paso Query: " + SQL_Query);
-                        Debug.WriteLine("Paso 3: Dentro del ELSE - No existe el Usuario");
-                        con.Close();
-                    }
-                }
-                catch (System.Data.SqlClient.SqlException ex)
-                {
-                    Debug.WriteLine("Error : " + ex);
-                }
-                finally
-                {
-                    con.Close();
-                }
+        /*
+        Debug.WriteLine("Paso 2: Variables Registradas SQL_() ");
+        try
+        {
+            Debug.WriteLine("Paso 3: Dentro del Try");
+            con.Open();
+            object Result = cmd.ExecuteScalar();
+            if (Result != null)
+            {
+                Debug.WriteLine("Paso Query: "+SQL_Query);
+                Debug.WriteLine("Paso 3: Dentro del IF - Si existe el Usuario");
+                con.Close();
+                Server.Transfer("tabla_Usuarios.aspx");
             }
-        }*/
+            else
+            {
+                Debug.WriteLine("Paso Query: " + SQL_Query);
+                Debug.WriteLine("Paso 3: Dentro del ELSE - No existe el Usuario");
+                con.Close();
+            }
+        }
+        catch (System.Data.SqlClient.SqlException ex)
+        {
+            Debug.WriteLine("Error : " + ex);
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+}*/
     }
 }

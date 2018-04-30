@@ -4,15 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+         <title>EUAB - ASP.NET</title>
 </head>
+
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h1>Tabla Usuarios</h1>
-            <asp:Button ID="btn_BackLogin" runat="server" Text="Regresar al Login" OnCommand="btn_DoSwitchCase" CommandName="Comando_Back" />
-            <asp:Button ID="btn_Read" runat="server" Text="Leer BD" OnCommand="btn_DoSwitchCase" CommandName="Comando_Read" />
+            <nav class='navbar navbar-default'>
+                <div class='container-fluid'>
+                    <a class='navbar-brand'>Bienvenido <strong><span id="span_Session_userName" runat="server"></span></strong></a>      
+                    <asp:Button ID="btn_BackLogin" runat="server" class='btn navbar-btn btn-sm navbar-right' Text="Cerrar Sesion" OnCommand="btn_DoSwitchCase" CommandName="Comando_Back" />
+                    <asp:Button ID="btn_Read" runat="server" class='btn navbar-btn btn-sm navbar-right' Text="Administracion" OnCommand="btn_DoSwitchCase" CommandName="Comando_Read" />                     
+                </div>
+            </nav>
+
+        <div class="container-fluid">
+           
             <asp:Repeater ID="rptTable" runat="server">
                 <HeaderTemplate>
                     <table class="table">
@@ -48,6 +56,7 @@
             </asp:Repeater>
         </div>
 
+        <div class="container">
         <asp:Label ID="lbl_BusquedaUsuarios" runat="server" Text="Busqueda de Usuarios Por Fecha"></asp:Label>
         <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
         <asp:Label ID="lbl_FechaSeleccionadaIni" runat="server" Text="Fecha Inicio"></asp:Label>
@@ -84,7 +93,7 @@
                     </table>
                 </FooterTemplate>
             </asp:Repeater>
-        
+        </div>
     </form>
 </body>
 </html>

@@ -4,18 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <title>Sistema EUAB</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>Detalles de: </h1>
-            
-           
+            <h1>Detalles de: </h1>          
             <h2>Passord del Usuario</h2>
-       
-
             <h1>Datos de Usuario</h1>
             <asp:Label ID="lbl_UsuarioID" runat="server" Text="ID Usuario"></asp:Label>
                 <asp:TextBox ID="asp_UsuarioID" runat="server"></asp:TextBox><br />  
@@ -55,5 +52,6 @@
         <asp:Button ID="btn_Back" runat="server" Text="Regresar a las Tablas" OnClick="btn_Back_Click" />
         </div>
     </form>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

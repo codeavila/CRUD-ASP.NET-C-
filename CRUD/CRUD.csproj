@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Create.aspx" />
+    <Content Include="css.css" />
     <Content Include="JavaScript.js" />
     <Content Include="Login.aspx" />
     <Content Include="Read.aspx" />

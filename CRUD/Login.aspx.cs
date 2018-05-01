@@ -106,7 +106,7 @@ namespace CRUD
         {
             HttpCookie cookieCreate_SessionName = new HttpCookie("EUABApp");
             cookieCreate_SessionName.Value = cookie_UserName;
-            cookieCreate_SessionName.Expires = DateTime.Now.AddHours(1);
+            cookieCreate_SessionName.Expires = DateTime.Now.AddDays(1);
             cookieCreate_SessionName.Path = "EUAB_App";
             Response.Cookies.Add(cookieCreate_SessionName);
             Response.Redirect("tabla_Usuarios.aspx");

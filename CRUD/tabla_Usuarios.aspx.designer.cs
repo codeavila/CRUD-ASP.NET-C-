@@ -58,24 +58,6 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.Repeater rptTable;
         
         /// <summary>
-        /// Control lbl_BusquedaUsuarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_BusquedaUsuarios;
-        
-        /// <summary>
-        /// Control Calendar1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-        
-        /// <summary>
         /// Control lbl_FechaSeleccionadaIni.
         /// </summary>
         /// <remarks>
@@ -94,13 +76,13 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.TextBox asp_FechaIni;
         
         /// <summary>
-        /// Control Calendar2.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        protected global::System.Web.UI.WebControls.Button Label2;
         
         /// <summary>
         /// Control lbl_FechaSeleccionadaFin.
@@ -121,6 +103,15 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.TextBox asp_FechaFin;
         
         /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// Control btn_BusquedaPorFecha.
         /// </summary>
         /// <remarks>
@@ -128,6 +119,24 @@ namespace CRUD {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_BusquedaPorFecha;
+        
+        /// <summary>
+        /// Control Calendar1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        
+        /// <summary>
+        /// Control Calendar2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Calendar2;
         
         /// <summary>
         /// Control Repeater1.

@@ -16,17 +16,19 @@ namespace CRUD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!IsPostBack)
-                {
-                if (Request.Cookies["EUABApp"] != null)
-                {
-                    Method_CookieReceived();
-                    Fill_Table();
-                }
-                else
-                {
+                if (!Page.IsPostBack)
+                {                
+
+                    if (Request.Cookies["EUABApp"] != null)
+                    {
+                        Method_CookieReceived();
+                        Fill_Table();
+                    }
+                    else
+                    {
+                    Response.Redirect("Login.aspx");
                     Debug.WriteLine("Cookie Recibida :( Sin Datos");
-                }
+                    }
             }
         }
 

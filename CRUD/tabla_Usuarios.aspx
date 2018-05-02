@@ -30,7 +30,7 @@
                         <asp:Repeater ID="rptTable" runat="server">
                             <HeaderTemplate>
                                     <tr>
-                                          <th scope="row" >ID Usuario</th>
+                                          <th scope="row">ID Usuario</th>
                                           <th>Nombre de Usuario</th>
                                           <th>Password</th>
                                           <th>Fecha de Creacion</th>
@@ -39,7 +39,7 @@
                             </HeaderTemplate>
                                 <ItemTemplate>
                                     <tr>
-                                        <th scope="row" ><%# Eval("id_usuario") %></th>
+                                        <th scope="row"><%# Eval("id_usuario") %></th>
                                         <td ><%# Eval("user_name") %></td>
                                         <td ><%# Eval("user_password") %></td>
                                         <td ><%# Eval("user_create_date") %></td>
@@ -66,6 +66,7 @@
         <!-- Tabla Usuario -->
 
 
+        <!-- Busqueda por fecha -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -74,8 +75,7 @@
                         <asp:Label ID="lbl_FechaSeleccionadaIni" runat="server" Text="Fecha Inicio" CssClass="input-group-addon"></asp:Label>
                         <asp:TextBox ID="asp_FechaIni" runat="server" CssClass="form-control"></asp:TextBox>   
                             <span class="input-group-btn">
-                                <asp:Button ID="Label2" runat="server" CssClass="btn btn-info" Text="Calendario"></asp:Button>
-                                
+                                <asp:LinkButton ID="linkBtn_CalendarioIni" runat="server" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Calendar_1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </asp:LinkButton>                                
                             </span>
                     </div>
                     <br />
@@ -83,48 +83,77 @@
                         <asp:Label ID="lbl_FechaSeleccionadaFin" runat="server" Text="Fecha Inicio" CssClass="input-group-addon"></asp:Label>
                         <asp:TextBox ID="asp_FechaFin" runat="server" CssClass="form-control"></asp:TextBox>      
                         <span class="input-group-btn">
-                                <asp:Button ID="Button1" runat="server"  Text="Calendario" CssClass="btn btn-info"></asp:Button>
+                                <asp:LinkButton ID="linkBtn_CalendarioFin" runat="server" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Calendar_2"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </asp:LinkButton>                                
                         </span>
                     </div>
                         <br/>
                     <asp:Button ID="btn_BusquedaPorFecha" runat="server" Text="Busqueda" OnCommand="btn_DoSwitchCase" CommandName="Comando_SearchDate" CssClass="btn btn-info"/>
-
-                    <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" HIDDEN></asp:Calendar>
-                    <asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Calendar2_SelectionChanged" HIDDEN></asp:Calendar> 
+                       
+                        
+                        <!-- Modal Calendario Inicio -->
+                            <div id="Modal_Calendar_1" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                              <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">                                      
+                                                    <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" Height="200px" Width="300px"></asp:Calendar>
+                                </div>
+                              </div>
+                            </div>
+                        <!-- Modal Calendario Inicio -->
                     
+                        <!-- Modal Calendario Final -->
+                            <div id="Modal_Calendar_2" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                              <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                                <asp:Calendar ID="Calendar2" runat="server" OnSelectionChanged="Calendar2_SelectionChanged" Height="200px" Width="300px"></asp:Calendar>
+                                </div>
+                              </div>
+                            </div>
+                        <!-- Modal Calendario Final -->
+                         
+
                     </div>
                 </div>
             
                 <div class="col-lg-6">
-                    <asp:Repeater ID="Repeater1" runat="server">
-                <HeaderTemplate>
-                    <table class="table">
-                        <tr>
-                          <th >ID Usuario</th>
-                          <th >Nombre de Usuario</th>
-                          <th >Password</th>
-                          <th >Fecha de Creacion</th>
-                          <th >Fecha de Modificacion</th>
-                        </tr>
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <tr>
-                        <td ><%# Eval("id_usuario") %></td>
-                        <td ><%# Eval("user_name") %></td>
-                        <td ><%# Eval("user_password") %></td>
-                        <td ><%# Eval("user_create_date") %></td>
-                        <td ><%# Eval("user_update_date") %></td>
-                    </tr>
-                </ItemTemplate>
-                <FooterTemplate>
-                    </table>
-                </FooterTemplate>
-            </asp:Repeater>
+                    <table class="table table-hover table-condensed">
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <HeaderTemplate>
+                                <tr>
+                                  <th scope="row" >ID Usuario</th>
+                                  <th >Nombre de Usuario</th>
+                                  <th >Password</th>
+                                  <th >Fecha de Creacion</th>
+                                  <th >Fecha de Modificacion</th>
+                                </tr>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr>
+                                <th scope="row" ><%# Eval("id_usuario") %></th>
+                                <td ><%# Eval("user_name") %></td>
+                                <td ><%# Eval("user_password") %></td>
+                                <td ><%# Eval("user_create_date") %></td>
+                                <td ><%# Eval("user_update_date") %></td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                        </FooterTemplate>
+                    </asp:Repeater>
+                  </table>
                 </div>
-            </div>
-        
-        
+            </div>        
         </div>
+        <!-- Busqueda por fecha -->
     </form>
+    
+          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+   </script>
+    
 </body>
 </html>

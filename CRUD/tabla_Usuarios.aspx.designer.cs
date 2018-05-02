@@ -76,13 +76,13 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.TextBox asp_FechaIni;
         
         /// <summary>
-        /// Control Label2.
+        /// Control linkBtn_CalendarioIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Label2;
+        protected global::System.Web.UI.WebControls.LinkButton linkBtn_CalendarioIni;
         
         /// <summary>
         /// Control lbl_FechaSeleccionadaFin.
@@ -103,13 +103,13 @@ namespace CRUD {
         protected global::System.Web.UI.WebControls.TextBox asp_FechaFin;
         
         /// <summary>
-        /// Control Button1.
+        /// Control linkBtn_CalendarioFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.LinkButton linkBtn_CalendarioFin;
         
         /// <summary>
         /// Control btn_BusquedaPorFecha.
